@@ -16,7 +16,7 @@ public class App {
         return;
       }
       
-      List<String> file;
+      List file;
       try{
          file = ReadFile.read(args[0]);
       }catch (IOException ex){
@@ -28,6 +28,13 @@ public class App {
       System.out.println("--------------------\n");
       
       
-      System.out.println(file);
+      String error = Runner.run(file);
+      if(error == ""){
+        return;
+      }
+      
+      System.out.println("Execution of "+args[0]+" failed with the following error:");
+      System.out.println(error);
+      return;
     }
 }
