@@ -14,18 +14,26 @@ public class Runner{
     String operation = "+";
     
     for(String[] line : commands){
-      for(String command : line){
-        System.out.println(command);
-        if(operators.stream().anyMatch(str -> str.trim().equals(command))){
-          operation = command;
-        }else if(command.charAt(0) == '$'){
-          System.out.println("Vars not yet supported");
-        }else{
-          buffer = Runner.mod(buffer, new Float(command), operation);
+      // if this is an assignment
+      // if(new String(line).indexOf('=') >= 0){
+      if(false){ // Temp
+        
+      }else{
+        for(String command : line){
+          // System.out.println(command);
+          
+          if(operators.stream().anyMatch(str -> str.trim().equals(command))){
+            operation = command;
+          }else if(command.charAt(0) == '$'){
+            
+            System.out.println("Vars not yet supported");
+          }else{
+            buffer = Runner.mod(buffer, new Float(command), operation);
+          }
         }
+        System.out.println(buffer);
+        buffer = 0.0f;
       }
-      System.out.println(buffer);
-      buffer = 0.0f;
     }
     return "";
   }
