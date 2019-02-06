@@ -16,7 +16,7 @@ public class App {
         return;
       }
       
-      List file;
+      List<String[]> file;
       try{
          file = ReadFile.read(args[0]);
       }catch (IOException ex){

@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 
 public class ReadFile{
-  public static List read(String path) throws IOException {
+  public static List<String[]> read(String path) throws IOException {
     // try{
     //   Scanner fileScanner = new Scanner(new File(path));
     // }catch(FileNotFoundException ex){
@@ -24,7 +24,7 @@ public class ReadFile{
     // fileScanner.close();
     
     List<String> lineBrokenFile = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
-    List output = new ArrayList();
+    List<String[]> output = new ArrayList<String[]>();
     
     for(String line : lineBrokenFile){
       output.add(line.split(" "));
